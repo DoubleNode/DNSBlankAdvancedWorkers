@@ -1,0 +1,97 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "eaf6e622dd41b07b251d8f01752eab31bc811493",
+          "version": "5.4.1"
+        }
+      },
+      {
+        "package": "AtomicSwift",
+        "repositoryURL": "https://github.com/DoubleNodeOpen/AtomicSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "58fbeed795715d9c8dd7bb7ae1c36f37f2827089",
+          "version": "1.2.2"
+        }
+      },
+      {
+        "package": "DNSBlankWorkers",
+        "repositoryURL": "https://github.com/DoubleNode/DNSBlankWorkers.git",
+        "state": {
+          "branch": null,
+          "revision": "fe6be96ec2b5029399da596d3d11f48312f1d080",
+          "version": "1.3.6"
+        }
+      },
+      {
+        "package": "DNSCore",
+        "repositoryURL": "https://github.com/DoubleNode/DNSCore.git",
+        "state": {
+          "branch": null,
+          "revision": "893f4554d07898cb50228b12892515e92990e5ac",
+          "version": "1.3.23"
+        }
+      },
+      {
+        "package": "DNSCoreThreading",
+        "repositoryURL": "https://github.com/DoubleNode/DNSCoreThreading.git",
+        "state": {
+          "branch": null,
+          "revision": "7b8134557fb9a6e2c5a97627d5fdcb11e13c646b",
+          "version": "1.3.8"
+        }
+      },
+      {
+        "package": "DNSDataObjects",
+        "repositoryURL": "https://github.com/DoubleNode/DNSDataObjects.git",
+        "state": {
+          "branch": null,
+          "revision": "ed4310ffb760b77b60a92e2a00b82734266d09d1",
+          "version": "1.3.11"
+        }
+      },
+      {
+        "package": "DNSProtocols",
+        "repositoryURL": "https://github.com/DoubleNode/DNSProtocols.git",
+        "state": {
+          "branch": null,
+          "revision": "ffacd8035d6c835e504d7fac273631b3abb8a6b1",
+          "version": "1.3.11"
+        }
+      },
+      {
+        "package": "DNSProtocolsAdvanced",
+        "repositoryURL": "https://github.com/DoubleNode/DNSProtocolsAdvanced.git",
+        "state": {
+          "branch": null,
+          "revision": "713e8b6c62abdbc627dab03914f34e5bf3251691",
+          "version": "1.3.0"
+        }
+      },
+      {
+        "package": "SFSymbol",
+        "repositoryURL": "https://github.com/Nirma/SFSymbol",
+        "state": {
+          "branch": null,
+          "revision": "08dda98b2ba4a36653becaab6f4234f5fc2592d2",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "SwiftyBeaver",
+        "repositoryURL": "https://github.com/SwiftyBeaver/SwiftyBeaver.git",
+        "state": {
+          "branch": null,
+          "revision": "2c513a2e8fbfbd6495afc4a05941d8e3fdba68e9",
+          "version": "1.9.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
