@@ -11,19 +11,20 @@ import DNSProtocols
 import DNSProtocolsAdvanced
 import Foundation
 
-open class WKRBlankNFCTagsWorker: WKRBlankBaseWorker, PTCLNFCTags_Protocol
+open class WKRBlankNFCTagsWorker: WKRBlankBaseWorker, PTCLNFCTags
 {
-    public var nextWorker: PTCLNFCTags_Protocol?
-
+    public var callNextWhen: PTCLProtocol.Call.NextWhen = .whenUnhandled
+    public var nextWorker: PTCLNFCTags?
+    
     public required init() {
         super.init()
     }
-
-    public required init(nextWorker: PTCLNFCTags_Protocol) {
-        super.init()
+    public func register(nextWorker: PTCLNFCTags,
+                         for callNextWhen: PTCLProtocol.Call.NextWhen) {
+        self.callNextWhen = callNextWhen
         self.nextWorker = nextWorker
     }
-
+    
     override open func disableOption(_ option: String) {
         super.disableOption(option)
         nextWorker?.disableOption(option)
@@ -32,16 +33,31 @@ open class WKRBlankNFCTagsWorker: WKRBlankBaseWorker, PTCLNFCTags_Protocol
         super.enableOption(option)
         nextWorker?.enableOption(option)
     }
+    @discardableResult
+    public func runDo(runNext: PTCLCallBlock?,
+                      doWork: PTCLCallResultBlockThrows = { return $0?(.unhandled) }) throws -> Any? {
+        return try self.runDo(callNextWhen: self.callNextWhen, runNext: runNext, doWork: doWork)
+    }
 
     // MARK: - Business Logic / Single Item CRUD
 
     open func doScanTags(for key: String,
                          with progress: PTCLProgressBlock?,
-                         and block: PTCLNFCTagsBlockVoidArrayNFCNDEFMessageDNSError?) throws {
-        guard nextWorker != nil else {
-            return
-        }
+                         and block: PTCLNFCTagsBlockVoidArrayNFCNDEFMessage?) throws {
+        try self.runDo(runNext: {
+            guard let nextWorker = self.nextWorker else { return nil }
+            return try nextWorker.doScanTags(for: key, with: progress, and: block)
+        },
+                       doWork: {
+            return try self.intDoScanTags(for: key, with: progress, and: block, then: $0)
+        })
+    }
 
-        try nextWorker!.doScanTags(for: key, with: progress, and:block)
+    // MARK: - Internal Work Methods
+    open func intDoScanTags(for key: String,
+                            with progress: PTCLProgressBlock?,
+                            and block: PTCLNFCTagsBlockVoidArrayNFCNDEFMessage?,
+                            then resultBlock: PTCLResultBlock?) throws {
+        _ = resultBlock?(.unhandled)
     }
 }

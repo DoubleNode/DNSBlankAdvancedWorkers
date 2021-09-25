@@ -7,7 +7,11 @@
 //
 
 import DNSError
+import DNSProtocols
 
+public extension DNSCodeLocation {
+    typealias blankAdvancedWorkers = DNSBlankAdvancedWorkersCodeLocation
+}
 open class DNSBlankAdvancedWorkersCodeLocation: DNSCodeLocation {
     override open class var domainPreface: String { "com.doublenode.blankAdvancedWorkers." }
 }
